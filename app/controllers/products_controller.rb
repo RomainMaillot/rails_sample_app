@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.visible
   end
 
   def new
@@ -11,6 +11,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @comments = @product.comments
+    @comments = @product.comments.visible
   end
 end

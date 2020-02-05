@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205133813) do
+ActiveRecord::Schema.define(version: 20200205163003) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visible", default: true
   end
 
   create_table "products", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20200205133813) do
     t.date "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visible", default: true
   end
 
 end
