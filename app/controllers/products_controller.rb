@@ -8,4 +8,9 @@ class ProductsController < ApplicationController
 
   def create
   end
+
+  def show
+    @product = Product.find(params[:id])
+    @comments = @product.comments
+  end
 end

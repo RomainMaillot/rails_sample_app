@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
-    validates :article_id, :description, presence: true
-    belongs_to :article
+class Comment < ApplicationRecord
+    validates :body, :product_id, presence: true
+    belongs_to :product
 end

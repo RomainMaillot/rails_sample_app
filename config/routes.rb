@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-
-  get 'comments/new'
-
-  get 'comments/create'
-
   root "products#index"
+
+  resources :products do
+    resources :comments
+  end
 end
