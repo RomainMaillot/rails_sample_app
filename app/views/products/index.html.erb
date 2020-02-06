@@ -6,6 +6,9 @@
         <span><%= link_to category.name, root_path(category_id: category.id) %></span>
     <% end %>
 </p>
+<% @contributors.each do |contributor| %>
+    <p><%= "#{contributor.email}" %></p>
+<% end %>
 <% @products.each do |product| %>
     <p><strong><%= "#{product.name} -" %></strong> <%= "#{product.description} Prix: #{product.price}€ - #{pluralize(product.comments.visible.count, 'comment', plural: 'comments')} | " %><span><%= link_to 'Show', product %></span></p>
 <% end %>
