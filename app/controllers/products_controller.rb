@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.visible
+    @products = params[:category_id] ? Product.visible.by_category(params[:category_id]) : Product.visible
+    @categories = Category.all
   end
 
   def new
