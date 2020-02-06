@@ -1,0 +1,8 @@
+<h1>User#show</h1>
+<p>Find me in app/views/user/show.html.erb</p>
+
+<% @comments.each do |comment| %>
+    <p><%= "Produit: #{comment.product.name} Commentaire: #{comment.body}" %></p>
+<% end %>
+
+<%= link_to 'Back', products_path %>

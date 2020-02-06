@@ -11,8 +11,11 @@
 </p>
 
 <% @comments.each do |comment| %>
-    <p><%= "#{comment.body}" %></p>
+    <p><%= "#{comment.body} User: " %> | <%= link_to comment.user.email, user_path(comment.user.id) %></p>
 <% end %>
 
-<%= link_to 'New Comment', new_product_comment_path(@product.id) %> |
-<%= link_to 'Back', products_path %>
+<% if user_signed_in? %>
+    <%= link_to 'New Comment', new_product_comment_path(@product.id) %> | <%= link_to 'Back', products_path %>
+<% else %>
+    <%= link_to 'Login to add comment', new_product_comment_path(@product.id) %> | <%= link_to 'Back', products_path %>
+<% end %>
